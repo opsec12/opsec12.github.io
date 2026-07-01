@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eric Fong | Cybersecurity Leader</title>
+<style>
+  /* ── Reset & Base ─────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #080c12;
+    --bg2:       #0d1320;
+    --bg3:       #111827;
+    --border:    #1e293b;
+    --accent:    #38bdf8;
+    --accent2:   #818cf8;
+    --green:     #34d399;
+    --text:      #e2e8f0;
+    --muted:     #64748b;
+    --card:      #0f172a;
+    --glow:      rgba(56,189,248,0.15);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── Scrollbar ───────────────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* ── Nav ─────────────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 40px;
+    height: 60px;
+    background: rgba(8,12,18,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .nav-logo span { color: var(--text); }
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+  /* ── Hero ────────────────────────────────────────────────────── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    padding: 80px 40px 40px;
+    overflow: hidden;
+  }
+
+  /* Animated grid background */
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(56,189,248,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56,189,248,0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+  }
+
+  @keyframes gridMove {
+    0%   { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+  }
+
+  /* Radial glow */
+  #hero::after {
+    content: '';
+    position: absolute;
+    top: 30%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(56,189,248,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative; z-index: 1;
+    max-width: 860px;
+    text-align: center;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(56,189,248,0.1);
+    border: 1px solid rgba(56,189,248,0.3);
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    font-family: 'Courier New', monospace;
+  }
+
+  .hero-name {
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-title {
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* Terminal typing effect */
+  .terminal-line {
+    display: inline-block;
+    border-right: 2px solid var(--accent);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3.5s steps(50,end) 0.5s both, blink 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
+  .hero-summary {
+    max-width: 640px;
+    margin: 24px auto 36px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .hero-buttons {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 11px 26px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border: none;
+    transition: all .2s;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #080c12;
+  }
+  .btn-primary:hover { background: #7dd3fc; text-decoration: none; transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; transform: translateY(-1px); }
+
+  /* Stats bar */
+  .hero-stats {
+    display: flex; justify-content: center; gap: 48px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+  .stat-num {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+    display: block;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* ── Section base ────────────────────────────────────────────── */
+  section {
+    padding: 90px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  .section-label-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+  }
+
+  .section-label-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-title {
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .section-subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+
+  /* ── Competencies ────────────────────────────────────────────── */
+  #competencies { background: var(--bg2); max-width: 100%; padding: 80px 40px; }
+  #competencies .inner { max-width: 1100px; margin: 0 auto; }
+
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .comp-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    display: flex; align-items: flex-start; gap: 14px;
+    transition: border-color .2s, box-shadow .2s;
+  }
+
+  .comp-card:hover {
+    border-color: rgba(56,189,248,0.4);
+    box-shadow: 0 0 20px var(--glow);
+  }
+
+  .comp-icon {
+    width: 38px; height: 38px; min-width: 38px;
+    background: rgba(56,189,248,0.1);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+
+  .comp-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  /* ── Experience ──────────────────────────────────────────────── */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+    border-radius: 2px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 48px;
+    padding-left: 24px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -34px; top: 8px;
+    width: 12px; height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 10px rgba(56,189,248,0.6);
+  }
+
+  .timeline-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    flex-wrap: wrap; gap: 6px;
+    margin-bottom: 4px;
+  }
+
+  .job-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .job-date {
+    font-size: 12px;
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+    background: rgba(56,189,248,0.08);
+    border: 1px solid rgba(56,189,248,0.2);
+    padding: 2px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .job-company {
+    font-size: 14px;
+    color: var(--accent2);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  .job-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .job-bullets li {
+    font-size: 14px;
+    color: var(--muted);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .job-bullets li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--accent);
+    font-size: 12px;
+    top: 2px;
+  }
+
+  .job-bullets li strong { color: var(--text); font-weight: 600; }
+
+  /* ── Certifications ──────────────────────────────────────────── */
+  #certifications { background: var(--bg2); max-width: 100%; padding: 80px 40px; }
+  #certifications .inner { max-width: 1100px; margin: 0 auto; }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+  }
+
+  .cert-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 14px;
+    transition: all .2s;
+  }
+
+  .cert-card:hover {
+    border-color: rgba(129,140,248,0.4);
+    box-shadow: 0 0 16px rgba(129,140,248,0.1);
+    transform: translateY(-2px);
+  }
+
+  .cert-badge {
+    width: 40px; height: 40px; min-width: 40px;
+    background: linear-gradient(135deg, rgba(129,140,248,0.2), rgba(56,189,248,0.1));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+
+  .cert-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .cert-in-progress {
+    font-size: 11px;
+    color: var(--accent);
+    margin-top: 2px;
+    font-family: 'Courier New', monospace;
+  }
+
+  /* ── Skills ──────────────────────────────────────────────────── */
+  .skills-group { margin-bottom: 36px; }
+
+  .skills-group-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-family: 'Courier New', monospace;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .skills-group-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .skill-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+
+  .skill-tag {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 13px;
+    padding: 5px 14px;
+    border-radius: 6px;
+    transition: all .2s;
+    cursor: default;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(56,189,248,0.06);
+  }
+
+  /* ── Education ───────────────────────────────────────────────── */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .edu-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    transition: all .2s;
+  }
+
+  .edu-card:hover {
+    border-color: rgba(52,211,153,0.3);
+    box-shadow: 0 0 16px rgba(52,211,153,0.08);
+  }
+
+  .edu-degree {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .edu-school {
+    font-size: 13px;
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  /* ── Contact ─────────────────────────────────────────────────── */
+  #contact {
+    background: var(--bg2);
+    max-width: 100%;
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  #contact .inner { max-width: 600px; margin: 0 auto; }
+
+  .contact-links {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 16px;
+    margin-top: 32px;
+  }
+
+  .contact-link {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all .2s;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px var(--glow);
+  }
+
+  .contact-icon { font-size: 18px; }
+
+  /* ── Footer ──────────────────────────────────────────────────── */
+  footer {
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'Courier New', monospace;
+  }
+
+  /* ── Fade-in animation ───────────────────────────────────────── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Projects ───────────────────────────────────────────────── */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+  }
+
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all .2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity .2s;
+  }
+
+  .project-card:hover {
+    border-color: rgba(56,189,248,0.35);
+    box-shadow: 0 4px 24px var(--glow);
+    transform: translateY(-3px);
+  }
+
+  .project-card:hover::before { opacity: 1; }
+
+  .project-header {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+  }
+
+  .project-icon { font-size: 22px; }
+
+  .project-links { display: flex; gap: 8px; }
+
+  .project-link {
+    font-size: 11px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 4px;
+    transition: all .2s;
+    font-family: 'Courier New', monospace;
+  }
+
+  .project-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+
+  .project-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .project-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .project-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 4px;
+  }
+
+  .project-tag {
+    font-size: 11px;
+    font-family: 'Courier New', monospace;
+    background: rgba(56,189,248,0.07);
+    border: 1px solid rgba(56,189,248,0.18);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  /* ── Responsive ──────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 60px 20px; }
+    #competencies, #certifications, #contact { padding: 60px 20px; }
+    .hero-stats { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">EF<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-tag">// CISSP · CISM · CASP+ · 15+ Years</div>
+    <h1 class="hero-name">Eric Fong</h1>
+    <div class="hero-title">
+      <span class="terminal-line">Security Engineer &amp; Cloud Architect</span>
+    </div>
+    <p class="hero-summary">
+      Strategic cybersecurity leader specializing in security architecture, cloud platform engineering,
+      threat detection, and enterprise risk management across AWS, Azure, and GCP environments.
+    </p>
+    <div class="hero-buttons">
+      <a href="#experience" class="btn btn-primary">View Experience</a>
+      <a href="mailto:efong2023@gmail.com" class="btn btn-secondary">Get In Touch</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num" data-target="15">0</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="12">0</span>
+        <span class="stat-label">Certifications</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="5">0</span>
+        <span class="stat-label">Employers</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-target="400">0</span>
+        <span class="stat-label">Personnel Trained</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Competencies ─────────────────────────────────────────────────── -->
+<div id="about">
+<div id="competencies">
+  <div class="inner">
+    <div class="section-label fade-in">
+      <span class="section-label-tag">// Core Competencies</span>
+      <div class="section-label-line"></div>
+    </div>
+    <h2 class="section-title fade-in">Areas of Expertise</h2>
+    <p class="section-subtitle fade-in">Deep hands-on experience across the full security lifecycle</p>
+
+    <div class="comp-grid">
+      <div class="comp-card fade-in">
+        <div class="comp-icon">🏛️</div>
+        <div><div class="comp-name">Enterprise Security Architecture</div></div>
+      </div>
+      <div class="comp-card fade-in">
+        <div class="comp-icon">☁️</div>
+        <div><div class="comp-name">Cloud Security (AWS · Azure · GCP)</div></div>
+      </div>
+      <div class="comp-card fade-in">
+        <div class="comp-icon">🎯</div>
+        <div><div class="comp-name">Threat Modeling &amp; Risk Assessment</div></div>
+      </div>
+      <div class="comp-card fade-in">
+        <div class="comp-icon">📋</div>
+        <div><div class="comp-name">NIST · ISO 27001 · CIS · MITRE ATT&amp;CK</div></div>
+      </div>
+      <div class="comp-card fade-in">
+        <div class="comp-icon">🔑</div>
+        <div><div class="comp-name">Identity &amp; Access Management (IAM)</div></div>
+      </div>
+      <div class="comp-card fade-in">
+        <div class="comp-icon">🛡️</div>
+        <div><div class="comp-name">Network Security &amp; Data Protection</div></div>
+      </div>
+      <div class="comp-card fade-in">
+        <div class="comp-icon">⚙️</div>
+        <div><div class="comp-name">DevSecOps · Secure SDLC · CI/CD</div></div>
+      </div>
+      <div class="comp-card fade-in">
+        <div class="comp-icon">📊</div>
+        <div><div class="comp-name">SOAR / SIEM (Sentinel · Splunk · Elastic)</div></div>
+      </div>
+      <div class="comp-card fade-in">
+        <div class="comp-icon">🚨</div>
+        <div><div class="comp-name">Incident Response &amp; SOC Operations</div></div>
+      </div>
+      <div class="comp-card fade-in">
+        <div class="comp-icon">🔐</div>
+        <div><div class="comp-name">Encryption &amp; Data Loss Prevention</div></div>
+      </div>
+      <div class="comp-card fade-in">
+        <div class="comp-icon">📝</div>
+        <div><div class="comp-name">Security Policy &amp; Standards Development</div></div>
+      </div>
+      <div class="comp-card fade-in">
+        <div class="comp-icon">👥</div>
+        <div><div class="comp-name">Mentoring &amp; Cross-Functional Leadership</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ── Experience ───────────────────────────────────────────────────── -->
+<section id="experience">
+  <div class="section-label fade-in">
+    <span class="section-label-tag">// Professional Experience</span>
+    <div class="section-label-line"></div>
+  </div>
+  <h2 class="section-title fade-in">Career Timeline</h2>
+  <p class="section-subtitle fade-in">15+ years protecting and securing enterprise environments</p>
+
+  <div class="timeline">
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-header">
+        <div class="job-title">Security Engineer / Cloud Architect</div>
+        <div class="job-date">Apr 2024 – Present</div>
+      </div>
+      <div class="job-company">CACI</div>
+      <ul class="job-bullets">
+        <li>Spearheaded <strong>advanced threat-detection architectures</strong> across Azure and AWS environments, accelerating early threat identification and strengthening organizational security posture.</li>
+        <li>Overhauled incident-response protocols, reducing response times by <strong>30%</strong> through optimized KQL-driven detection logic and Sentinel workbooks.</li>
+        <li>Deployed <strong>machine-learning analytics</strong> to enhance detection accuracy, significantly reducing false positives.</li>
+        <li>Defined security reference architectures and policies for hybrid cloud deployments aligned with <strong>NIST and CIS benchmarks</strong>.</li>
+        <li>Configured and managed <strong>Palo Alto next-generation firewalls</strong> for network segmentation, threat prevention, and secure access.</li>
+        <li>Utilized <strong>Tanium and Microsoft Defender for Endpoint</strong> to maintain real-time endpoint visibility and enforce compliance.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-header">
+        <div class="job-title">Senior Technical Planner / Cyber Lead</div>
+        <div class="job-date">Jan 2023 – Apr 2024</div>
+      </div>
+      <div class="job-company">SAIC</div>
+      <ul class="job-bullets">
+        <li>Led a team of cyber analysts to implement enterprise security solutions for the <strong>Army Cyber Protection Brigade</strong>, improving compliance by 25%.</li>
+        <li>Streamlined AWS cloud infrastructure, boosting operational efficiency by <strong>100%</strong> while reducing costs by <strong>50%</strong>.</li>
+        <li>Engineered <strong>Python-based automation and Docker-containerized solutions</strong> on AWS, improving cyber exercise performance by 75%.</li>
+        <li>Conducted threat modeling and gap analyses aligned with <strong>DoD cybersecurity standards</strong>.</li>
+        <li>Leveraged <strong>Palo Alto, CrowdStrike, and Splunk</strong> to monitor, detect, and respond to threats.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-header">
+        <div class="job-title">Information Security Manager</div>
+        <div class="job-date">Apr 2019 – Jan 2023</div>
+      </div>
+      <div class="job-company">USDA – National Bio and Agro-Defense Facility</div>
+      <ul class="job-bullets">
+        <li>Primary cybersecurity advisor for NBAF, providing guidance on <strong>SOC operations, security architecture, and risk management strategy</strong>.</li>
+        <li>Designed layered <strong>defense-in-depth strategies</strong> for Industrial Control Systems and IoT assets, cutting incident response time by 50%.</li>
+        <li>Operated <strong>Tenable, Elasticsearch, and Security Onion</strong> for vulnerability scanning, log analysis, and threat hunting.</li>
+        <li>Directed <strong>RMF operations</strong> and delivered security awareness training for over 400 personnel.</li>
+        <li>Developed disaster recovery and BCP plans aligned with <strong>NIST 800-53</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-header">
+        <div class="job-title">Cyber Assessor / Cyber Lead</div>
+        <div class="job-date">Apr 2006 – Present</div>
+      </div>
+      <div class="job-company">United States Army Reserve</div>
+      <ul class="job-bullets">
+        <li>Led <strong>enterprise-scale cyber range exercises</strong> with Army Reserve forces, enhancing cybersecurity readiness by 95%.</li>
+        <li>Utilized <strong>Terraform and GitLab CI/CD</strong> pipelines to automate range deployments, increasing efficiency by 50%.</li>
+        <li>Conducted comprehensive evaluations of security controls, improving DoD compliance by 75%.</li>
+        <li>Assessed environments using <strong>Palo Alto, CrowdStrike, Splunk, Elasticsearch, Tenable, AWS, and Azure</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-header">
+        <div class="job-title">Cybersecurity Analyst</div>
+        <div class="job-date">2016 – 2019</div>
+      </div>
+      <div class="job-company">U.S. Department of Defense</div>
+      <ul class="job-bullets">
+        <li>Supported execution of the <strong>Command Cyber Readiness Inspection (CCRI)</strong>, ensuring compliance with DoD benchmarks.</li>
+        <li>Maintained continuous intrusion detection, reducing response time by <strong>25%</strong> and preserving mission-critical network integrity.</li>
+        <li>Leveraged <strong>Tanium, Elasticsearch, and Tenable</strong> for endpoint management, log analysis, and vulnerability assessments.</li>
+        <li>Transformed complex cyber telemetry into <strong>actionable visual dashboards</strong> for senior stakeholders.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Projects ──────────────────────────────────────────────────────── -->
+<section id="projects">
+  <div class="section-label fade-in">
+    <span class="section-label-tag">// Python Projects</span>
+    <div class="section-label-line"></div>
+  </div>
+  <h2 class="section-title fade-in">Open Source &amp; Portfolio Projects</h2>
+  <p class="section-subtitle fade-in">Advanced ML/AI implementations built from scratch — no shortcuts</p>
+
+  <div class="project-grid">
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-icon">🧠</div>
+        <div class="project-links">
+          <a href="https://github.com/opsec123/neural-network-from-scratch" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-name">Neural Network from Scratch</div>
+      <div class="project-desc">Fully-connected feedforward neural network using only NumPy — forward pass, backprop, mini-batch SGD, dropout, He/Xavier init. No frameworks.</div>
+      <div class="project-tags">
+        <span class="project-tag">NumPy</span>
+        <span class="project-tag">Backpropagation</span>
+        <span class="project-tag">SGD</span>
+        <span class="project-tag">Dropout</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-icon">🔬</div>
+        <div class="project-links">
+          <a href="https://github.com/opsec123/ml-pipeline-mlflow" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-name">ML Pipeline with MLflow</div>
+      <div class="project-desc">Production-style ML pipeline with data ingestion, feature engineering, multi-model training, cross-validation, and full experiment tracking via MLflow.</div>
+      <div class="project-tags">
+        <span class="project-tag">MLflow</span>
+        <span class="project-tag">Scikit-learn</span>
+        <span class="project-tag">YAML Config</span>
+        <span class="project-tag">Model Registry</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-icon">🚨</div>
+        <div class="project-links">
+          <a href="https://github.com/opsec123/realtime-anomaly-detector" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-name">Real-Time Anomaly Detector</div>
+      <div class="project-desc">Async streaming anomaly detection ensemble (Isolation Forest + Z-Score + EWMA) over live sensor data using asyncio with sliding-window online retraining.</div>
+      <div class="project-tags">
+        <span class="project-tag">asyncio</span>
+        <span class="project-tag">Isolation Forest</span>
+        <span class="project-tag">EWMA</span>
+        <span class="project-tag">Streaming</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-icon">🤖</div>
+        <div class="project-links">
+          <a href="https://github.com/opsec123/llm-data-analyst" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-name">LLM-Powered Data Analyst</div>
+      <div class="project-desc">ReAct-style agentic CSV analyst using OpenAI API — generates and executes pandas/matplotlib code in a sandboxed environment with multi-turn memory.</div>
+      <div class="project-tags">
+        <span class="project-tag">OpenAI API</span>
+        <span class="project-tag">ReAct Agent</span>
+        <span class="project-tag">Code Sandbox</span>
+        <span class="project-tag">Pandas</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-icon">📈</div>
+        <div class="project-links">
+          <a href="https://github.com/opsec123/time-series-forecaster" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-name">Time Series Forecaster</div>
+      <div class="project-desc">Multi-model forecasting pipeline comparing SARIMA (auto-order), Meta Prophet, and PyTorch LSTM with confidence intervals and an interactive Plotly dashboard.</div>
+      <div class="project-tags">
+        <span class="project-tag">SARIMA</span>
+        <span class="project-tag">Prophet</span>
+        <span class="project-tag">LSTM</span>
+        <span class="project-tag">Plotly</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-icon">🗄️</div>
+        <div class="project-links">
+          <a href="https://github.com/opsec123/lightweight-feature-store" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-name">Lightweight Feature Store</div>
+      <div class="project-desc">Production-grade feature store with versioning, point-in-time correct retrieval, PSI-based drift detection, and a low-latency online serving interface.</div>
+      <div class="project-tags">
+        <span class="project-tag">Parquet</span>
+        <span class="project-tag">Point-in-Time</span>
+        <span class="project-tag">Drift Detection</span>
+        <span class="project-tag">MLOps</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-icon">🕸️</div>
+        <div class="project-links">
+          <a href="https://github.com/opsec123/gnn-recommender" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-name">GNN Recommendation System</div>
+      <div class="project-desc">LightGCN-style graph convolutional network for collaborative filtering with BPR loss, negative sampling, and HR@K / NDCG@K evaluation.</div>
+      <div class="project-tags">
+        <span class="project-tag">PyTorch Geometric</span>
+        <span class="project-tag">LightGCN</span>
+        <span class="project-tag">BPR Loss</span>
+        <span class="project-tag">Graph ML</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-icon">⚡</div>
+        <div class="project-links">
+          <a href="https://github.com/opsec123/mini-automl" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-name">Mini AutoML Framework</div>
+      <div class="project-desc">Optuna-powered AutoML with TPE search over a configurable model zoo (XGBoost, LightGBM, RF, GB), top-K voting ensemble, and leaderboard export.</div>
+      <div class="project-tags">
+        <span class="project-tag">Optuna</span>
+        <span class="project-tag">XGBoost</span>
+        <span class="project-tag">LightGBM</span>
+        <span class="project-tag">AutoML</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-icon">🚀</div>
+        <div class="project-links">
+          <a href="https://github.com/opsec123/distributed-training" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-name">Distributed Training Script</div>
+      <div class="project-desc">HuggingFace Transformer fine-tuning with PyTorch DDP, AMP mixed precision, gradient checkpointing, warmup/cosine LR, early stopping, and WandB logging.</div>
+      <div class="project-tags">
+        <span class="project-tag">PyTorch DDP</span>
+        <span class="project-tag">HuggingFace</span>
+        <span class="project-tag">Mixed Precision</span>
+        <span class="project-tag">Multi-GPU</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-icon">🔍</div>
+        <div class="project-links">
+          <a href="https://github.com/opsec123/interpretability-toolkit" target="_blank" class="project-link">GitHub →</a>
+        </div>
+      </div>
+      <div class="project-name">ML Interpretability Toolkit</div>
+      <div class="project-desc">Unified explainability framework generating self-contained HTML reports with SHAP (beeswarm, waterfall), LIME local explanations, calibration curves, and PDP/ICE plots.</div>
+      <div class="project-tags">
+        <span class="project-tag">SHAP</span>
+        <span class="project-tag">LIME</span>
+        <span class="project-tag">PDP / ICE</span>
+        <span class="project-tag">XAI</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Certifications ────────────────────────────────────────────────── -->
+<div id="certifications">
+  <div class="inner">
+    <div class="section-label fade-in">
+      <span class="section-label-tag">// Certifications</span>
+      <div class="section-label-line"></div>
+    </div>
+    <h2 class="section-title fade-in">Credentials &amp; Certifications</h2>
+    <p class="section-subtitle fade-in">Industry-recognized qualifications across security, cloud, and AI domains</p>
+
+    <div class="cert-grid">
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🏅</div>
+        <div>
+          <div class="cert-name">CISSP</div>
+          <div class="cert-in-progress">Certified Information Systems Security Professional</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🏅</div>
+        <div>
+          <div class="cert-name">CISM</div>
+          <div class="cert-in-progress">Certified Information Security Manager</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🎖️</div>
+        <div>
+          <div class="cert-name">CompTIA CASP+</div>
+          <div class="cert-in-progress">Advanced Security Practitioner</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🎖️</div>
+        <div>
+          <div class="cert-name">CompTIA Security+ &amp; Network+</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🪟</div>
+        <div>
+          <div class="cert-name">Microsoft SC-200</div>
+          <div class="cert-in-progress">Security Operations Analyst</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🪟</div>
+        <div>
+          <div class="cert-name">Microsoft AZ-500</div>
+          <div class="cert-in-progress">Azure Security Fundamentals</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🪟</div>
+        <div>
+          <div class="cert-name">Microsoft Azure AI Fundamentals</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">☁️</div>
+        <div>
+          <div class="cert-name">AWS Cloud Practitioner</div>
+          <div class="cert-in-progress">Amazon Web Services</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">☁️</div>
+        <div>
+          <div class="cert-name">AWS Certified AI Practitioner</div>
+          <div class="cert-in-progress">Amazon Web Services</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">☁️</div>
+        <div>
+          <div class="cert-name">AWS Solutions Architect Associate</div>
+          <div class="cert-in-progress">Amazon Web Services</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🔄</div>
+        <div>
+          <div class="cert-name">AWS Security Specialty</div>
+          <div class="cert-in-progress" style="color:var(--green)">⟳ In Progress</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🌐</div>
+        <div>
+          <div class="cert-name">Google Cybersecurity Certificate</div>
+          <div class="cert-in-progress">Google Career Certificates</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Skills ────────────────────────────────────────────────────────── -->
+<section id="skills">
+  <div class="section-label fade-in">
+    <span class="section-label-tag">// Technical Skills</span>
+    <div class="section-label-line"></div>
+  </div>
+  <h2 class="section-title fade-in">Technology Stack</h2>
+  <p class="section-subtitle fade-in">Tools and platforms used in production environments</p>
+
+  <div class="skills-group fade-in">
+    <div class="skills-group-title">Cloud &amp; Infrastructure</div>
+    <div class="skill-tags">
+      <span class="skill-tag">AWS</span>
+      <span class="skill-tag">Microsoft Azure</span>
+      <span class="skill-tag">Google Cloud Platform</span>
+      <span class="skill-tag">Docker</span>
+      <span class="skill-tag">Hybrid / On-Premises</span>
+      <span class="skill-tag">Containerized Environments</span>
+    </div>
+  </div>
+
+  <div class="skills-group fade-in">
+    <div class="skills-group-title">Security Platforms</div>
+    <div class="skill-tags">
+      <span class="skill-tag">Microsoft Sentinel</span>
+      <span class="skill-tag">Microsoft Defender for Endpoint</span>
+      <span class="skill-tag">Splunk</span>
+      <span class="skill-tag">Elastic / Elasticsearch</span>
+      <span class="skill-tag">Security Onion</span>
+      <span class="skill-tag">CrowdStrike</span>
+      <span class="skill-tag">Palo Alto NGFW</span>
+      <span class="skill-tag">Tanium</span>
+      <span class="skill-tag">Tenable</span>
+    </div>
+  </div>
+
+  <div class="skills-group fade-in">
+    <div class="skills-group-title">Detection &amp; Analytics</div>
+    <div class="skill-tags">
+      <span class="skill-tag">KQL</span>
+      <span class="skill-tag">Azure Data Explorer</span>
+      <span class="skill-tag">Watchlists</span>
+      <span class="skill-tag">Sentinel Workbooks</span>
+      <span class="skill-tag">Monitoring Dashboards</span>
+      <span class="skill-tag">Advanced Regex</span>
+    </div>
+  </div>
+
+  <div class="skills-group fade-in">
+    <div class="skills-group-title">Automation &amp; DevSecOps</div>
+    <div class="skill-tags">
+      <span class="skill-tag">Terraform</span>
+      <span class="skill-tag">GitLab CI/CD</span>
+      <span class="skill-tag">Jenkins</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Docker</span>
+      <span class="skill-tag">Secure SDLC</span>
+    </div>
+  </div>
+
+  <div class="skills-group fade-in">
+    <div class="skills-group-title">Frameworks &amp; Standards</div>
+    <div class="skill-tags">
+      <span class="skill-tag">NIST 800-53</span>
+      <span class="skill-tag">ISO 27001</span>
+      <span class="skill-tag">CIS Controls</span>
+      <span class="skill-tag">MITRE ATT&amp;CK</span>
+      <span class="skill-tag">RMF</span>
+    </div>
+  </div>
+
+  <!-- Education inline -->
+  <div class="section-label fade-in" style="margin-top:60px">
+    <span class="section-label-tag">// Education</span>
+    <div class="section-label-line"></div>
+  </div>
+  <h2 class="section-title fade-in">Academic Background</h2>
+
+  <div class="edu-grid" style="margin-top:24px">
+    <div class="edu-card fade-in">
+      <div class="edu-degree">Master of Science, Information Security</div>
+      <div class="edu-school">Norwich University</div>
+    </div>
+    <div class="edu-card fade-in">
+      <div class="edu-degree">Bachelor of Science, Computer Science</div>
+      <div class="edu-school">Brooklyn College</div>
+    </div>
+    <div class="edu-card fade-in">
+      <div class="edu-degree">Intermediate Level Education &amp; Advanced Officer Course</div>
+      <div class="edu-school">U.S. Army Command and General Staff College</div>
+    </div>
+    <div class="edu-card fade-in">
+      <div class="edu-degree">Cyber Warfare Officer (MOS 17A)</div>
+      <div class="edu-school">U.S. Army Cyber Center of Excellence</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ───────────────────────────────────────────────────────── -->
+<div id="contact">
+  <div class="inner">
+    <div class="section-label fade-in" style="justify-content:center;text-align:center">
+      <span class="section-label-tag">// Contact</span>
+    </div>
+    <h2 class="section-title fade-in">Get In Touch</h2>
+    <p style="color:var(--muted);margin-top:10px" class="fade-in">
+      Open to new opportunities, collaborations, and conversations about security.
+    </p>
+
+    <div class="contact-links">
+      <a href="mailto:efong2023@gmail.com" class="contact-link fade-in">
+        <span class="contact-icon">✉️</span> efong2023@gmail.com
+      </a>
+      <a href="tel:3475151662" class="contact-link fade-in">
+        <span class="contact-icon">📞</span> (347) 515-1662
+      </a>
+      <a href="https://linkedin.com/in/opsec123" target="_blank" class="contact-link fade-in">
+        <span class="contact-icon">💼</span> linkedin.com/in/opsec123
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Footer ────────────────────────────────────────────────────────── -->
+<footer>
+  <span style="color:var(--accent)">eric_fong</span>@portfolio:~$ <span style="opacity:.5">// Built with HTML · CSS · JS</span>
+</footer>
+
+<!-- ── Scripts ───────────────────────────────────────────────────────── -->
+<script>
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Counter animation
+  function animateCounter(el, target, duration = 1800) {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) {
+        el.textContent = target + (target >= 100 ? '+' : '+');
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(start) + (target >= 100 ? '' : '');
+      }
+    }, 16);
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.stat-num').forEach(el => {
+          animateCounter(el, parseInt(el.dataset.target));
+        });
+        statsObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const statsEl = document.querySelector('.hero-stats');
+  if (statsEl) statsObserver.observe(statsEl);
+
+  // Active nav link highlight on scroll
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+</script>
+</body>
+</html>
