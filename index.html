@@ -48,7 +48,7 @@ a{text-decoration:none;color:inherit}
 #theme-btn:hover{box-shadow:0 0 20px rgba(56,189,248,.4);transform:scale(1.05)}
 
 /* ── Nav ── */
-nav{position:fixed;top:0;right:0;z-index:999;padding:14px 28px;display:flex;gap:24px;background:rgba(6,10,15,.85);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:999;padding:12px 20px 12px 68px;display:flex;gap:18px;align-items:center;justify-content:flex-end;background:rgba(6,10,15,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);box-sizing:border-box;flex-wrap:wrap}
 [data-theme="light"] nav{background:rgba(248,250,252,.9)}
 nav a{font-size:13px;color:var(--muted);letter-spacing:.5px;transition:color .2s}
 nav a:hover{color:var(--accent)}
@@ -191,6 +191,13 @@ section,div[id]{padding:80px 40px}
 /* ── Fade-in ── */
 .fade-in{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
 .fade-in.visible{opacity:1;transform:none}
+
+@media(max-width:600px){
+  #theme-btn{top:10px;left:10px;width:34px;height:34px;font-size:11px}
+  nav{padding:10px 10px 10px 54px;gap:10px;font-size:11px}
+  nav a{font-size:11px;letter-spacing:0}
+}
+
 </style>
 </head>
 <body>
@@ -236,7 +243,7 @@ section,div[id]{padding:80px 40px}
         <span class="t-line"><span class="t-key">EXP</span>          <span class="t-val">20+ years</span></span>
         <span class="t-line t-divider">────────────────────────────────────────</span>
         <span class="t-line"><span class="t-key">CERTS</span>        <span class="t-flag">CISSP · CISM · CASP+</span></span>
-        <span class="t-line"><span class="t-key">      </span>       <span class="t-flag">Sec+ · Net+ · SAA-C03 · CLF-C02 · AWS-C03</span></span>
+        <span class="t-line"><span class="t-key">      </span>       <span class="t-flag">Sec+ · Net+ · SAA-C03 · CLF-C02 · AIF-C01</span></span>
         <span class="t-line"><span class="t-key">      </span>       <span class="t-flag">AZ-900 · AI-900 · SC-900 · SC-200 · SC-300</span></span>
         <span class="t-line"><span class="t-key">      </span>       <span class="t-flag">ITIL v4</span></span>
         <span class="t-line t-divider">────────────────────────────────────────</span>
@@ -410,7 +417,7 @@ section,div[id]{padding:80px 40px}
       <div class="cert-card fade-in"><div class="cert-badge">🎖️</div><div><div class="cert-name">CompTIA Security+</div><div class="cert-sub">CompTIA</div></div></div>
       <div class="cert-card fade-in"><div class="cert-badge">🎖️</div><div><div class="cert-name">CompTIA Network+</div><div class="cert-sub">CompTIA</div></div></div>
       <div class="cert-card fade-in"><div class="cert-badge">☁️</div><div><div class="cert-name">AWS Solutions Architect Associate</div><div class="cert-sub">Amazon Web Services — SAA-C03</div></div></div>
-      <div class="cert-card fade-in"><div class="cert-badge">☁️</div><div><div class="cert-name">AWS Certified — C03</div><div class="cert-sub">Amazon Web Services — AWS-C03</div></div></div>
+      <div class="cert-card fade-in"><div class="cert-badge">☁️</div><div><div class="cert-name">AWS Certified AI Practitioner</div><div class="cert-sub">Amazon Web Services — AIF-C01</div></div></div>
       <div class="cert-card fade-in"><div class="cert-badge">☁️</div><div><div class="cert-name">AWS Certified Cloud Practitioner</div><div class="cert-sub">Amazon Web Services — CLF-002</div></div></div>
       <div class="cert-card fade-in"><div class="cert-badge">🪟</div><div><div class="cert-name">Microsoft Azure AI Fundamentals</div><div class="cert-sub">Microsoft — AI-900</div></div></div>
       <div class="cert-card fade-in"><div class="cert-badge">🪟</div><div><div class="cert-name">Microsoft Security, Compliance &amp; Identity Fundamentals</div><div class="cert-sub">Microsoft — SC-900</div></div></div>
@@ -445,6 +452,8 @@ section,div[id]{padding:80px 40px}
       <div class="proj-card fade-in"><div class="proj-lang">KQL · SENTINEL</div><div class="proj-name">Sentinel KQL Queries</div><div class="proj-desc">Production KQL detection rules, hunting queries, and workbook queries for Microsoft Sentinel — organized by MITRE tactic.</div><a href="https://github.com/opsec12/KQL_Ninja/tree/main/SentinelKQL" target="_blank" class="proj-link">→ opsec12/KQL_Ninja/tree/main/SentinelKQL</a></div>
       <div class="proj-card fade-in"><div class="proj-lang">PYTHON · SECURITY</div><div class="proj-name">Cyber Summit 2023</div><div class="proj-desc">Repository from the U.S. Army Reserve Cyber Protection Brigade sessions at Cyber Summit 2023 — tools, scripts, and resources.</div><a href="https://github.com/opsec12/CS23" target="_blank" class="proj-link">→ opsec12/CS23</a></div>
       <div class="proj-card fade-in"><div class="proj-lang">KQL · ELASTIC</div><div class="proj-name">Elastic KQL Queries</div><div class="proj-desc">Curated KQL detection and hunting queries for Elastic SIEM/Security, covering endpoint, network, and cloud log sources.</div><a href="https://github.com/opsec12/ElasticKQL" target="_blank" class="proj-link">→ opsec12/ElasticKQL</a></div>
+      <div class="proj-card fade-in"><div class="proj-lang">RUST · AI</div><div class="proj-name">Snapnote2</div><div class="proj-desc">Privacy-first local AI photo-to-notes assistant. Snap a lecture slide, whiteboard, or textbook and get structured study notes — no cloud APIs, runs entirely on your machine via Ollama.</div><a href="https://github.com/opsec12/snapnote2" target="_blank" class="proj-link">→ opsec12/snapnote2</a></div>
+      <div class="proj-card fade-in"><div class="proj-lang">HTML · ARMY</div><div class="proj-name">ABCP WHtR Calculator</div><div class="proj-desc">Waist-to-Height Ratio calculator implementing Army Directive 2026-13 (Army Body Composition Program). Single-file offline tool with live pass/fail scoring per the new Army standard.</div><a href="https://github.com/opsec12/ABCP" target="_blank" class="proj-link">→ opsec12/ABCP</a></div>
     </div>
   </div>
 </section>
