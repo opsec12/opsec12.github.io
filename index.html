@@ -637,31 +637,66 @@ footer{
 .fi.vis{opacity:1;transform:none}
 
 /* ── Responsive ── */
+
+/* ── Responsive ── */
+
+/* Sub-line items */
+.hero-sub{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+.sub-item{white-space:nowrap}
+.sub-sep{color:var(--border2);font-family:var(--mono);font-size:12px}
+
+/* Tablet */
 @media(max-width:900px){
-  nav{padding:0 24px}
+  nav{padding:0 20px}
   .nav-links{display:none}
   .nav-toggle{display:flex}
-  #hero{padding:100px 24px 60px}
-  .hero-grid{
-    grid-template-columns:1fr;
-    gap:40px;
-  }
-  .hero-photo{
-    width:160px;
-    height:160px;
-    order:-1;
-  }
-  section{padding:60px 24px}
-  .exp-item{grid-template-columns:1fr;gap:8px}
-  .exp-meta{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
-  footer{padding:24px}
+  #hero{padding:90px 20px 48px}
+  section{padding:52px 20px}
+  .exp-item{grid-template-columns:1fr;gap:4px}
+  .exp-meta{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+  .edu-item{grid-template-columns:1fr;gap:2px}
+  .cert-list{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+  .skills-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+  .contact-grid{grid-template-columns:repeat(2,1fr)}
+  footer{padding:28px 20px}
 }
-@media(max-width:500px){
-  .hero-name{font-size:2rem}
+
+/* Mobile */
+@media(max-width:600px){
+  nav{padding:0 16px;height:52px}
+  #hero{padding:76px 16px 40px}
+  .hero-name{font-size:1.8rem;letter-spacing:-0.5px}
+  .hero-role{font-size:13px}
+  .hero-sub{justify-content:center;font-size:11px}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:8px}
+  .hero-btn{text-align:center;padding:12px 16px}
+  .stats-row{grid-template-columns:repeat(2,1fr) !important}
+  .stats-row > div{padding:16px}
+  .stats-row > div > div:first-child{font-size:1.5rem}
+  section{padding:44px 16px}
+  .section-h{font-size:1.2rem}
   .cert-list{grid-template-columns:1fr}
-  .proj-list{grid-template-columns:1fr}
+  .cert-item{padding:12px 14px}
+  .exp-item{padding:14px 0}
+  .exp-title{font-size:13px}
+  .exp-bullets li{font-size:12px}
   .skills-grid{grid-template-columns:1fr;gap:24px}
+  .proj-list{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .pub-card{padding:14px 16px;gap:12px}
+  .pub-num{display:none}
+  footer{padding:24px 16px}
+  footer > div > div:nth-child(2){flex-direction:column;align-items:stretch}
+  footer > div > div:nth-child(2) > a{text-align:center}
+  .nav-mobile a{font-size:13px;padding:12px 0}
 }
+
+/* Very small */
+@media(max-width:360px){
+  .hero-name{font-size:1.5rem}
+  .stats-row{grid-template-columns:1fr !important}
+}
+
 </style>
 </head>
 <body>
@@ -701,7 +736,7 @@ footer{
         <span style="color:var(--accent2)">Cyber Security Engineer, Cloud Architect, &amp; AI Practitioner</span>
       </div>
       <div class="hero-sub fi" style="justify-content:center;text-align:center;">
-        DoD Contractor&nbsp;<span>//</span>&nbsp;U.S. Army Cyber Warfare Officer&nbsp;<span>//</span>&nbsp;20+ Years Experience
+        <span class="sub-item">DoD Contractor</span><span class="sub-sep">//</span><span class="sub-item">U.S. Army Cyber Warfare Officer</span><span class="sub-sep">//</span><span class="sub-item">20+ Years Experience</span>
       </div>
       <div class="hero-actions fi" style="justify-content:center;">
         <a href="mailto:opsec12@outlook.com" class="hero-btn hero-btn-primary">GET IN TOUCH</a>
@@ -710,7 +745,7 @@ footer{
       </div>
     </div>
     <!-- Stats row -->
-    <div class="inner fi" style="max-width:1100px;margin:48px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;">
+    <div class="inner fi stats-row" style="max-width:1100px;margin:48px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;">
       <div style="background:var(--card);padding:24px;text-align:center;">
         <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--accent);">20+</div>
         <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px;">Years in Cyber</div>
@@ -1123,18 +1158,75 @@ footer{
   <div class="inner">
     <h2 class="section-h fi">PROJECTS</h2>
     <p class="section-sub fi">Open source security engineering, detection tools, and automation</p>
-    <div class="fi" style="margin-top:8px;padding:32px;border:1px solid var(--border);border-radius:4px;background:var(--card);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
-      <div>
-        <div style="font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:8px;">// OPEN SOURCE WORK</div>
-        <div style="font-family:var(--mono);font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;">github.com/opsec12</div>
-        <div style="font-size:13px;color:var(--muted);line-height:1.7;max-width:600px;">
-          15+ repositories including <strong style="color:var(--text);font-weight:500;">ElasticPython</strong> (10 Elasticsearch automation projects), 
-          <strong style="color:var(--text);font-weight:500;">KQL Ninja / SentinelKQL</strong> (Microsoft Sentinel detection library), 
-          <strong style="color:var(--text);font-weight:500;">ElasticKQL</strong> (Elastic detection queries), 
-          <strong style="color:var(--text);font-weight:500;">Cyber Summit 2023</strong>, and more.
+    <div class="proj-list" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));">
+
+      <a href="https://github.com/opsec12/opsec12.github.io" target="_blank" rel="noopener" class="proj-card fi">
+        <div class="proj-header"><div class="proj-num">PROJECT_01</div><div class="proj-link-icon">↗</div></div>
+        <div class="proj-name">Cybersecurity Portfolio Site</div>
+        <div class="proj-desc">Personal portfolio built with vanilla HTML/CSS — dark terminal aesthetic, self-contained single file with embedded resume, mobile-responsive, deployed on GitHub Pages.</div>
+        <div class="proj-stack">
+          <span class="proj-tech">HTML</span><span class="proj-tech">CSS</span><span class="proj-tech">JavaScript</span><span class="proj-tech">GitHub Pages</span>
         </div>
-      </div>
-      <a href="https://github.com/opsec12" target="_blank" rel="noopener" class="hero-btn hero-btn-ghost" style="white-space:nowrap;flex-shrink:0;">VIEW ON GITHUB ↗</a>
+      </a>
+
+      <a href="https://github.com/opsec12/ElasticPython" target="_blank" rel="noopener" class="proj-card fi">
+        <div class="proj-header"><div class="proj-num">PROJECT_02</div><div class="proj-link-icon">↗</div></div>
+        <div class="proj-name">ElasticPython</div>
+        <div class="proj-desc">10 Python automation projects for Elasticsearch — covering index templates, ILM policies, ingest pipelines, security rules, Fleet agents, RBAC, Kibana dashboards, and connectors.</div>
+        <div class="proj-stack">
+          <span class="proj-tech">Python</span><span class="proj-tech">Elasticsearch API</span><span class="proj-tech">Kibana</span><span class="proj-tech">Elastic Fleet</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/opsec12/KQL_Ninja" target="_blank" rel="noopener" class="proj-card fi">
+        <div class="proj-header"><div class="proj-num">PROJECT_03</div><div class="proj-link-icon">↗</div></div>
+        <div class="proj-name">KQL Ninja / SentinelKQL</div>
+        <div class="proj-desc">Production-grade KQL query library for Microsoft Sentinel — threat hunting, detection engineering, SOC triage, and incident response across Azure environments.</div>
+        <div class="proj-stack">
+          <span class="proj-tech">KQL</span><span class="proj-tech">Microsoft Sentinel</span><span class="proj-tech">Azure</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/opsec12/ElasticKQL" target="_blank" rel="noopener" class="proj-card fi">
+        <div class="proj-header"><div class="proj-num">PROJECT_04</div><div class="proj-link-icon">↗</div></div>
+        <div class="proj-name">ElasticKQL</div>
+        <div class="proj-desc">Elastic KQL detection library for threat hunting in Elastic Security — network anomalies, authentication events, endpoint behaviors, and SIEM use cases.</div>
+        <div class="proj-stack">
+          <span class="proj-tech">KQL</span><span class="proj-tech">Elastic Security</span><span class="proj-tech">SIEM</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/opsec12/CS23" target="_blank" rel="noopener" class="proj-card fi">
+        <div class="proj-header"><div class="proj-num">PROJECT_05</div><div class="proj-link-icon">↗</div></div>
+        <div class="proj-name">Cyber Summit 2023</div>
+        <div class="proj-desc">Tools and resources from U.S. Army Reserve Cyber Summit 2023 — supporting tactical cyber exercises and knowledge sharing across Army cyber units.</div>
+        <div class="proj-stack">
+          <span class="proj-tech">Python</span><span class="proj-tech">Cyber Ops</span><span class="proj-tech">U.S. Army Reserve</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/opsec12/snapnote2" target="_blank" rel="noopener" class="proj-card fi">
+        <div class="proj-header"><div class="proj-num">PROJECT_06</div><div class="proj-link-icon">↗</div></div>
+        <div class="proj-name">SnapNote2</div>
+        <div class="proj-desc">Lightweight, fast note-taking application built for speed and simplicity — designed for capture-first workflows in operational and security environments.</div>
+        <div class="proj-stack">
+          <span class="proj-tech">Python</span><span class="proj-tech">CLI</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/opsec12/ABCP" target="_blank" rel="noopener" class="proj-card fi">
+        <div class="proj-header"><div class="proj-num">PROJECT_07</div><div class="proj-link-icon">↗</div></div>
+        <div class="proj-name">ABCP</div>
+        <div class="proj-desc">Study aids and references for U.S. Army personnel undergoing professional military education and branch-specific preparation.</div>
+        <div class="proj-stack">
+          <span class="proj-tech">Python</span><span class="proj-tech">U.S. Army</span><span class="proj-tech">Training</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="fi" style="margin-top:20px;text-align:center;">
+      <a href="https://github.com/opsec12" target="_blank" rel="noopener" class="hero-btn hero-btn-ghost">VIEW ALL ON GITHUB ↗</a>
     </div>
   </div>
 </section>
