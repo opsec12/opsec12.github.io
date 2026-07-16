@@ -636,7 +636,17 @@ footer{
 }
 .fi.vis{opacity:1;transform:none}
 
+/* ── Stats Row ── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);justify-items:center;align-items:center;text-align:center}
+@media(max-width:700px){.stats-row{grid-template-columns:repeat(2,1fr);justify-items:center}}
+@media(max-width:360px){.stats-row{grid-template-columns:repeat(1,1fr);justify-items:center}}
+
 /* ── Responsive ── */
+
+/* ── Stats Row ── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);justify-items:center;align-items:center;text-align:center}
+@media(max-width:700px){.stats-row{grid-template-columns:repeat(2,1fr);justify-items:center}}
+@media(max-width:360px){.stats-row{grid-template-columns:repeat(1,1fr);justify-items:center}}
 
 /* ── Responsive ── */
 
@@ -745,7 +755,7 @@ footer{
       </div>
     </div>
     <!-- Stats row -->
-    <div class="inner fi stats-row" style="max-width:1100px;margin:48px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;">
+    <div class="inner fi stats-row" style="max-width:900px;margin:48px auto 0;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;">
       <div style="background:var(--card);padding:24px;text-align:center;">
         <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--accent);">20+</div>
         <div style="font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px;">Years in Cyber</div>
@@ -1172,7 +1182,7 @@ footer{
       <a href="https://github.com/opsec12/ElasticPython" target="_blank" rel="noopener" class="proj-card fi">
         <div class="proj-header"><div class="proj-num">PROJECT_02</div><div class="proj-link-icon">↗</div></div>
         <div class="proj-name">ElasticPython</div>
-        <div class="proj-desc">10 Python automation projects for Elasticsearch — covering index templates, ILM policies, ingest pipelines, security rules, Fleet agents, RBAC, Kibana dashboards, and connectors.</div>
+        <div class="proj-desc">Multiple Python scripts spanning AI, cyber, and cloud — including Elasticsearch automation for index templates, ILM policies, ingest pipelines, security rules, Fleet agents, RBAC, Kibana dashboards, and connectors.</div>
         <div class="proj-stack">
           <span class="proj-tech">Python</span><span class="proj-tech">Elasticsearch API</span><span class="proj-tech">Kibana</span><span class="proj-tech">Elastic Fleet</span>
         </div>
@@ -1220,6 +1230,35 @@ footer{
         <div class="proj-desc">Study aids and references for U.S. Army personnel undergoing professional military education and branch-specific preparation.</div>
         <div class="proj-stack">
           <span class="proj-tech">Python</span><span class="proj-tech">U.S. Army</span><span class="proj-tech">Training</span>
+        </div>
+      </a>
+
+    </div>
+
+      <a href="https://github.com/opsec12/miniclaw" target="_blank" rel="noopener" class="proj-card fi">
+        <div class="proj-header"><div class="proj-num">PROJECT_08</div><div class="proj-link-icon">↗</div></div>
+        <div class="proj-name">MiniClaw</div>
+        <div class="proj-desc">A lightweight local AI assistant tool inspired by OpenClaw, built with restricted permissions for safe, privacy-focused personal use — runs entirely on-device.</div>
+        <div class="proj-stack">
+          <span class="proj-tech">Python</span><span class="proj-tech">Local AI</span><span class="proj-tech">Ollama</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/opsec12/oregon-trail" target="_blank" rel="noopener" class="proj-card fi">
+        <div class="proj-header"><div class="proj-num">PROJECT_09</div><div class="proj-link-icon">↗</div></div>
+        <div class="proj-name">Oregon Trail</div>
+        <div class="proj-desc">Text-based replica of the classic 90s Oregon Trail game — built in Python as a fun showcase of scripting fundamentals alongside AI, cyber, and cloud tooling concepts.</div>
+        <div class="proj-stack">
+          <span class="proj-tech">Python</span><span class="proj-tech">CLI</span><span class="proj-tech">Game</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/opsec12/continental-divide" target="_blank" rel="noopener" class="proj-card fi">
+        <div class="proj-header"><div class="proj-num">PROJECT_10</div><div class="proj-link-icon">↗</div></div>
+        <div class="proj-name">Continental Divide</div>
+        <div class="proj-desc">A terminal-based mini Risk game — 5-country free-for-all where you attack adjacent territories, move troops, and hold ground as long as possible.</div>
+        <div class="proj-stack">
+          <span class="proj-tech">Python</span><span class="proj-tech">CLI</span><span class="proj-tech">Strategy Game</span>
         </div>
       </a>
 
