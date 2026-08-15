@@ -743,7 +743,7 @@ footer{
     <a href="#projects">PROJECTS</a>
     <a href="#publications">PUBLICATIONS</a>
     <a href="#contact">CONTACT</a>
-    <a href="Eric_Fong_Resume_Risk.docx" download="Eric_Fong_Resume_Risk.docx" class="nav-resume">RESUME ↓</a>
+    <a href="Eric_Fong.docx" download="Eric_Fong.docx" class="nav-resume">RESUME ↓</a>
   </div>
   <button class="nav-toggle" onclick="document.querySelector('.nav-mobile').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -765,7 +765,7 @@ footer{
       <div class="hero-content">
         <h1 class="hero-name fi">ERIC FONG</h1>
         <div class="hero-role fi">
-          <span style="color:var(--accent2)">Cybersecurity Leader, Security Risk &amp; Compliance Engineering, &amp; Cloud Architect</span>
+          <span style="color:var(--accent2)">Detection Engineer&nbsp;•&nbsp;Security Engineer&nbsp;•&nbsp;Cloud Architect</span>
         </div>
         <div class="hero-sub fi">
           <span class="sub-item">DoD Contractor</span><span class="sub-sep">//</span><span class="sub-item">U.S. Army Cyber Warfare Officer</span><span class="sub-sep">//</span><span class="sub-item">20+ Years Experience</span>
@@ -790,19 +790,20 @@ footer{
     <h2 class="section-h fi">ABOUT</h2>
     <div class="fi">
         <p style="font-size:15px;color:var(--text);line-height:1.8;margin-bottom:20px;">
-          Cybersecurity leader with 20+ years assessing, prioritizing, and remediating security risk
-          across cloud infrastructure, identity systems, and software supply chains for DoD and federal programs.
-          I specialize in <strong style="color:var(--accent);font-weight:500;">risk assessment &amp; RMF authorization</strong>,
-          <strong style="color:var(--accent);font-weight:500;">cloud security architecture</strong>, and
-          <strong style="color:var(--accent);font-weight:500;">identity &amp; supply-chain security</strong> — turning
-          ambiguous signals into a defensible view of risk and driving it through to remediation.
+          Detection engineer with 20+ years building and tuning high-confidence detections across
+          <strong style="color:var(--accent);font-weight:500;">Splunk, Microsoft Sentinel, and Elastic</strong> —
+          translating incidents, threat hunts, red-team findings, and vulnerability context into tested,
+          production-ready detection logic that cuts noise and holds up in real investigations.
+          Leads <strong style="color:var(--accent);font-weight:500;">detection-as-code programs</strong> spanning multiple SIEM platforms,
+          builds attack-emulation and validation methods including synthetic telemetry and detection unit tests,
+          and partners closely with incident response, threat hunting, red team, and purple team functions.
         </p>
         <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px;">
-          Currently serving as a DoD contractor and commissioned U.S. Army Reserve Cyber Warfare Officer.
-          I directed RMF operations and security control evaluations as primary risk advisor for a national
-          biodefense facility, and I build automation-first, AI-assisted tooling in Python and Go — IAM drift
-          detection, secrets scanning, SBOM generation, and Terraform security scanning — that makes risk
-          visible and actionable at scale.
+          Directed RMF risk-authorization and security architecture as primary cybersecurity advisor for a
+          national biodefense facility and across Army cyber protection operations. Currently a DoD contractor
+          and commissioned U.S. Army Reserve Cyber Warfare Officer. Builds automation-first tooling in Python
+          and Go — IAM drift detection, FAIR Monte Carlo risk simulation, AWS posture auditing, and Terraform
+          security scanning — that makes risk visible and actionable at scale.
         </p>
         <p style="font-size:14px;color:var(--muted);line-height:1.8;">
           Holder of 14 active certifications including CISSP, CISM, CASP+, and multiple AWS and
@@ -810,10 +811,10 @@ footer{
           Active security clearance.
         </p>
         <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:8px;">
-          <span style="font-family:var(--mono);font-size:11px;padding:5px 12px;border:1px solid var(--border2);border-radius:3px;color:var(--dim);">Risk Assessment &amp; RMF</span>
+          <span style="font-family:var(--mono);font-size:11px;padding:5px 12px;border:1px solid var(--border2);border-radius:3px;color:var(--dim);">Detection Engineering</span>
+          <span style="font-family:var(--mono);font-size:11px;padding:5px 12px;border:1px solid var(--border2);border-radius:3px;color:var(--dim);">Detection-as-Code</span>
+          <span style="font-family:var(--mono);font-size:11px;padding:5px 12px;border:1px solid var(--border2);border-radius:3px;color:var(--dim);">Threat Hunting</span>
           <span style="font-family:var(--mono);font-size:11px;padding:5px 12px;border:1px solid var(--border2);border-radius:3px;color:var(--dim);">Cloud Security Architecture</span>
-          <span style="font-family:var(--mono);font-size:11px;padding:5px 12px;border:1px solid var(--border2);border-radius:3px;color:var(--dim);">Identity &amp; Secrets Management</span>
-          <span style="font-family:var(--mono);font-size:11px;padding:5px 12px;border:1px solid var(--border2);border-radius:3px;color:var(--dim);">Supply Chain Security</span>
           <span style="font-family:var(--mono);font-size:11px;padding:5px 12px;border:1px solid var(--border2);border-radius:3px;color:var(--dim);">DoD / Federal</span>
           <span style="font-family:var(--mono);font-size:11px;padding:5px 12px;border:1px solid var(--border2);border-radius:3px;color:var(--dim);">TS Cleared</span>
         </div>
@@ -946,7 +947,7 @@ footer{
 <section id="experience" style="background:var(--bg2)">
   <div class="inner">
     <h2 class="section-h fi">EXPERIENCE</h2>
-    <p class="section-sub fi">20+ years defending critical systems and leading cyber operations</p>
+    <p class="section-sub fi">20+ years building detections and defending critical systems across DoD and enterprise</p>
     <div class="exp-list">
       <div class="exp-item fi">
         <div class="exp-meta">
@@ -956,12 +957,13 @@ footer{
         <div class="exp-body">
           <div class="exp-title">Security Engineer / Cloud Architect</div>
           <ul class="exp-bullets">
-            <li>Designed advanced <strong>threat-detection architectures</strong> across Azure and AWS, accelerating identification of anomalous activity and informing risk-based remediation priorities.</li>
-            <li>Configured <strong>Palo Alto</strong> next-generation firewalls for network segmentation, threat prevention, and secure hybrid cloud access.</li>
-            <li>Deployed <strong>machine-learning analytics</strong> to enhance detection accuracy and reduce false positives across enterprise environments.</li>
-            <li>Overhauled incident-response protocols, reducing response times by <strong>30%</strong> through optimized KQL-driven detection logic and Sentinel workbooks.</li>
-            <li>Maintained real-time endpoint visibility using <strong>Tanium and Microsoft Defender for Endpoint</strong>, enforcing compliance across enterprise assets.</li>
-            <li>Developed <strong>Go and Python</strong> tooling for automated security scanning, SBOM generation, and CI/CD pipeline integration across DoD environments.</li>
+            <li>Built high-confidence detections across <strong>Microsoft Sentinel, Defender, AWS logs, identity telemetry, endpoint, SaaS platforms, and developer space</strong>.</li>
+            <li>Deployed <strong>ML analytics</strong> to enhance detection accuracy and signal quality, significantly reducing false positives across enterprise environments.</li>
+            <li>Overhauled incident-response protocols, reducing response times by <strong>30%</strong> through optimized KQL detection logic and Microsoft Sentinel workbooks.</li>
+            <li>Designed advanced <strong>threat-detection architectures</strong> across Azure and AWS, accelerating identification of anomalous and fraudulent activity.</li>
+            <li>Maintained real-time endpoint visibility via <strong>Tanium and Microsoft Defender for Endpoint</strong>, enforcing compliance across enterprise assets.</li>
+            <li>Configured <strong>agent-powered tools and GenAI workflows</strong> to automate risk analysis and accelerate security operations.</li>
+            <li>Developed <strong>Python tooling</strong> for automated security scanning and CI/CD pipeline integration.</li>
           </ul>
         </div>
       </div>
@@ -973,10 +975,11 @@ footer{
         <div class="exp-body">
           <div class="exp-title">Senior Technical Planner / Cyber Lead</div>
           <ul class="exp-bullets">
-            <li>Led cyber analysts implementing enterprise security solutions across the <strong>Army Cyber Protection Brigade</strong>, improving compliance by 25%.</li>
-            <li>Engineered <strong>Python-based automation</strong> and Docker-containerized solutions improving cyber exercise performance by 75%.</li>
-            <li>Streamlined AWS cloud infrastructure, boosting efficiency by <strong>100%</strong> and reducing costs by 50% through architectural optimization.</li>
-            <li>Leveraged <strong>Palo Alto, CrowdStrike, and Splunk</strong> to monitor, detect, and respond to threats across complex network environments.</li>
+            <li>Led cyber analysts implementing enterprise security solutions across the <strong>Army Cyber Protection Brigade</strong>, improving cyber mission capability by 25%.</li>
+            <li>Planned multiple cyber exercises spanning <strong>detection engineering, security engineering, threat hunting, incident response, and SOC engineering</strong> across the Army Cyber footprint.</li>
+            <li>Engineered <strong>Python automation</strong> and Docker-containerized solutions on AWS, improving cyber exercise performance by 75%.</li>
+            <li>Streamlined AWS infrastructure, boosting efficiency by <strong>100%</strong> and reducing costs by 50% through architectural optimization.</li>
+            <li>Leveraged <strong>Security Onion, Elastic, Palo Alto, CrowdStrike, and Splunk</strong> to monitor, detect, and respond to threats across complex network environments.</li>
           </ul>
         </div>
       </div>
@@ -989,10 +992,10 @@ footer{
           <div class="exp-title">Information Security Manager</div>
           <ul class="exp-bullets">
             <li>Served as primary cybersecurity <strong>risk advisor</strong> for NBAF, owning SOC operations, security architecture reviews, and risk management decisions.</li>
-            <li>Directed <strong>Risk Management Framework (RMF)</strong> operations — including security control evaluation, risk categorization, and authorization support — and delivered security awareness training for 400+ personnel.</li>
-            <li>Deployed layered defense-in-depth for Industrial Control Systems and IoT assets, reducing incident response time by <strong>50%</strong>.</li>
-            <li>Managed <strong>Elasticsearch and Security Onion</strong> for log analysis, network monitoring, and threat hunting with Tenable for continuous scanning.</li>
-            <li>Conducted extensive web application security testing using <strong>Burp Suite</strong> and enforced code quality standards with <strong>SonarQube</strong> SAST across NBAF development pipelines.</li>
+            <li>Managed <strong>Elasticsearch and Security Onion</strong> for log analysis, network monitoring, and threat hunting — translating hunt findings into detection content — and Tenable for continuous vulnerability scanning to inform detection priorities.</li>
+            <li>Directed <strong>RMF operations</strong> — including security control evaluation, risk categorization, and authorization support — and delivered security awareness training for 400+ personnel.</li>
+            <li>Deployed defense-in-depth for <strong>ICS and IoT assets</strong>, investigating telemetry and baselines to cut incident response time by 50%.</li>
+            <li>Conducted extensive web application penetration testing with <strong>Burp Suite</strong> and enforced SAST standards via <strong>SonarQube</strong> across NBAF development pipelines, surfacing findings that fed detection and hardening work.</li>
           </ul>
         </div>
       </div>
@@ -1004,11 +1007,11 @@ footer{
         <div class="exp-body">
           <div class="exp-title">Cyber Warfare Officer (MOS 17A) / Cyber Assessor &amp; Lead</div>
           <ul class="exp-bullets">
-            <li>Evaluated security controls, improving DoD cybersecurity standards compliance by <strong>75%</strong> across multiple environments.</li>
-            <li>Transitioned from active-duty Signal Officer into <strong>Cyber Warfare Officer (MOS 17A)</strong> — led offensive and defensive cyber operations, network security assessments, and classified infrastructure hardening across DoD environments.</li>
-            <li>Led enterprise-scale <strong>cyber range exercises</strong> enhancing readiness by 95%; automated deployments via Terraform and GitLab CI/CD (+50% efficiency).</li>
-            <li>Operated <strong>Palo Alto, CrowdStrike, Elastic, Security Onion, Tenable, AWS, and Azure</strong> to assess and monitor threats.</li>
-            <li>Applied <strong>Go and Python</strong> development for security automation, tooling, and cyber range orchestration since 2016.</li>
+            <li>Evaluated security controls, improving DoD compliance by <strong>75%</strong> across multiple environments.</li>
+            <li>Transitioned from active-duty Signal Officer into <strong>Cyber Warfare Officer (MOS 17A)</strong>, leading offensive and defensive cyber operations, network security assessments, and classified infrastructure hardening.</li>
+            <li>Led enterprise-scale <strong>cyber range exercises</strong> building attack-emulation and detection-validation methods — including synthetic telemetry and detection unit tests — enhancing readiness by 95%; automated deployments via Terraform and GitLab CI/CD, improving efficiency by 50%.</li>
+            <li>Operated <strong>Google Threat Intelligence, Palo Alto, CrowdStrike, Elastic, Security Onion, Tenable, AWS, and Azure</strong>, leading a <strong>detection-as-code program</strong> spanning Elastic and Microsoft Sentinel in partnership with IR, threat hunting, red team, and purple team.</li>
+            <li>Applied <strong>Go, Python, KQL, and SQL</strong> for security automation, tooling, and cyber range orchestration since 2016 — extending detection design into cloud, identity, CI/CD, supply-chain, and AI-tooling attack paths.</li>
           </ul>
         </div>
       </div>
@@ -1410,7 +1413,7 @@ footer{
       <a href="https://linkedin.com/in/opsec12" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12px;font-weight:600;color:var(--muted);text-decoration:none;padding:10px 20px;border:1px solid var(--border2);border-radius:3px;transition:all 0.2s;letter-spacing:1px;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">LINKEDIN ↗</a>
       <a href="https://github.com/opsec12" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12px;font-weight:600;color:var(--muted);text-decoration:none;padding:10px 20px;border:1px solid var(--border2);border-radius:3px;transition:all 0.2s;letter-spacing:1px;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">GITHUB ↗</a>
       <a href="https://www.credly.com/users/eric-fong.106290a3" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:12px;font-weight:600;color:var(--muted);text-decoration:none;padding:10px 20px;border:1px solid var(--border2);border-radius:3px;transition:all 0.2s;letter-spacing:1px;" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border2)';this.style.color='var(--muted)'">CREDLY ↗</a>
-      <a href="Eric_Fong_Resume_Risk.docx" download="Eric_Fong_Resume_Risk.docx" style="font-family:var(--mono);font-size:12px;font-weight:600;color:var(--bg);background:var(--accent);text-decoration:none;padding:10px 20px;border:1px solid var(--accent);border-radius:3px;transition:all 0.2s;letter-spacing:1px;" onmouseover="this.style.background='#00c98e'" onmouseout="this.style.background='var(--accent)'">RESUME ↓</a>
+      <a href="Eric_Fong.docx" download="Eric_Fong.docx" style="font-family:var(--mono);font-size:12px;font-weight:600;color:var(--bg);background:var(--accent);text-decoration:none;padding:10px 20px;border:1px solid var(--accent);border-radius:3px;transition:all 0.2s;letter-spacing:1px;" onmouseover="this.style.background='#00c98e'" onmouseout="this.style.background='var(--accent)'">RESUME ↓</a>
     </div>
     <div style="font-family:var(--mono);font-size:11px;letter-spacing:3px;color:var(--dim);margin-top:24px;padding-top:16px;border-top:1px solid var(--border);">// connection_terminated</div>
   </div>
